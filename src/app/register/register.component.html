@@ -1,0 +1,36 @@
+<div class="containers">
+  <div class="headers">
+    <h1>Sign up</h1>
+  </div>
+  <div class="mains">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <span>
+        <i class="fa fa-user"></i>
+        <input type="text" placeholder="Name" formControlName="name" /> </span
+      ><br />
+      <span>
+        <i class="fa fa-envelope"></i>
+        <input type="text" placeholder="Email" formControlName="email" /> </span
+      ><br />
+      <span>
+        <i class="fa fa-lock"></i>
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        /> </span
+      ><br />
+      <span>
+        <i class="fa fa-lock"></i>
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="confirmPassword"
+        />
+      </span>
+      <br />
+      <button type="submit">Sign up</button>
+      <!-- <p class="register">already Registered? <a href="./index.html">login</a></p> -->
+    </form>
+  </div>
+</div>

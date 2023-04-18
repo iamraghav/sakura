@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="add-education">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 m-auto">
+          <a
+            title="Cancel"
+            routerLink="/dashboard"
+            class="btn btn-outline-danger btn-sm"
+            >X</a
+          >
+          <h1 class="display-4 text-center text-dark">Add Education</h1>
+          <p class="lead text-center text-dark">
+            Add any school, college, bootcamp, etc that you have attended
+          </p>
+          <small class="d-block pb-3 text-dark">* required fields</small>
+          <form [formGroup]="educationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="* School"
+                [ngClass]="{ 'is-invalid': submitted }"
+                formControlName="school"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="* Degree or Certification"
+                [ngClass]="{ 'is-invalid': submitted }"
+                formControlName="degree"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="* Field of Study"
+                [ngClass]="{ 'is-invalid': submitted }"
+                formControlName="fieldofstudy"
+              />
+            </div>
+            <h6 class="text-dark">From Date</h6>
+            <div class="form-group">
+              <input
+                type="date"
+                class="form-control form-control-lg"
+                [ngClass]="{ 'is-invalid': submitted }"
+                formControlName="from"
+              />
+            </div>
+            <h6 class="text-dark">To Date</h6>
+            <div class="form-group">
+              <input
+                type="date"
+                class="form-control form-control-lg"
+                formControlName="to"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control form-control-lg"
+                placeholder="Description"
+                formControlName="description"
+                spellcheck="false"
+              ></textarea>
+            </div>
+            <button
+              [disabled]="loading"
+              class="btn btn-info btn-block mt-4"
+              type="submit"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-border spinner-border-sm mr-1"
+              ></span
+              >Save
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

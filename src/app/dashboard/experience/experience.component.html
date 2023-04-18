@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="add-education">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 m-auto">
+          <a
+            title="Cancel"
+            routerLink="/dashboard"
+            class="btn btn-outline-danger btn-sm"
+            >X</a
+          >
+          <h1 class="display-4 text-center text-dark">Add Experience</h1>
+          <p class="lead text-center text-dark">
+            Add any job or position that you have had in the past or current
+          </p>
+          <small class="d-block pb-3 text-dark">* required fields</small>
+          <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="* Company"
+                [ngClass]="{ 'is-invalid': submitted }"
+                formControlName="company"
+              />
+              <div *ngIf="submitted" class="invalid-feedback"></div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="* Job Title"
+                [ngClass]="{ 'is-invalid': submitted }"
+                formControlName="title"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="* Location"
+                [ngClass]="{ 'is-invalid': submitted }"
+                formControlName="location"
+              />
+              <div *ngIf="submitted" class="invalid-feedback"></div>
+            </div>
+            <h6 class="text-dark">From Date</h6>
+            <div class="form-group">
+              <input
+                type="date"
+                class="form-control form-control-lg"
+                [ngClass]="{ 'is-invalid': submitted }"
+                formControlName="from"
+              />
+            </div>
+            <h6 class="text-dark">To Date</h6>
+            <div class="form-group">
+              <input
+                type="date"
+                class="form-control form-control-lg"
+                formControlName="to"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control form-control-lg"
+                placeholder="Description"
+                formControlName="description"
+                spellcheck="false"
+              ></textarea>
+            </div>
+            <button
+              [disabled]="loading"
+              class="btn btn-info btn-block mt-4"
+              type="submit"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-border spinner-border-sm mr-1"
+              ></span
+              >Save
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

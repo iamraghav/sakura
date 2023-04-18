@@ -1,0 +1,29 @@
+<div class="containers">
+  <div class="headers">
+    <h1>Login</h1>
+  </div>
+  <div class="mains">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <span>
+        <i class="fa fa-user"></i>
+        <input
+          type="text"
+          placeholder="Username"
+          formControlName="email"
+        /> </span
+      ><br />
+      <span>
+        <i class="fa fa-lock"></i>
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        /> </span
+      ><br />
+      <button type="submit">Login</button>
+      <p class="register">
+        Not Registered? <a href="./register.html">Sign up</a>
+      </p>
+    </form>
+  </div>
+</div>

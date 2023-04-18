@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Pacifico", cursive;
+  background-color: #f2e6f0;
+}
+
+.containers {
+  width: 380px;
+  margin: 7% auto;
+  border-radius: 25px;
+  background-color: rgb(255 255 255);
+  box-shadow: 0 0 17px #313030;
+  height: 70vh;
+}
+
+.headers {
+  text-align: center;
+  padding-top: 23px;
+}
+
+.headers h1 {
+  color: #c18da3;
+  font-size: 45px;
+  margin-bottom: 80px;
+}
+
+.mains {
+  text-align: center;
+}
+
+.mains input,
+button {
+  width: 300px;
+  height: 40px;
+  padding-left: 40px;
+  box-sizing: border-box;
+  font-size: 15px;
+  color: #080812;
+  margin-bottom: 40px;
+}
+
+.mains button {
+  padding-left: 0;
+  background-color: #f8ccda;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 70px;
+  border: 2px;
+}
+
+.mains button:hover {
+  background-color: #ecbfd3;
+}
+
+.mains span {
+  position: relative;
+}
+
+.mains i {
+  position: absolute;
+  left: 15px;
+  color: #333;
+  font-size: 25px;
+  top: 2px;
+}
+.register {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  margin-top: -55px;
+}
+.fa {
+  color: #f8ccda !important;
+  font-size: 16px !important;
+}

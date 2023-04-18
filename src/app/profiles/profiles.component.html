@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="profiles">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-4 text-center text-dark">User Profiles</h1>
+          <p class="lead text-center text-dark">
+            Browse and Connect with People
+          </p>
+          <div *ngFor="let profile of profiles">
+            <div class="card card-body bg-light text-dark mb-3">
+              <div class="row">
+                <div class="col-2">
+                  <img [src]="profile.av" alt="raghav" class="rounded-circle" />
+                </div>
+                <div class="col-lg-6 col-md-4 col-8">
+                  <h3>{{ profile.user.name }}</h3>
+                  <p>
+                    {{ profile.status }} <span> at </span> {{ profile.company }}
+                  </p>
+                  <p>{{ profile.location }}</p>
+                  <a
+                    [routerLink]="['/profile', profile.user._id]"
+                    class="btn btn-info"
+                    >View Profile</a
+                  >
+                </div>
+                <div class="col-md-4 d-none d-md-block">
+                  <h4>Skill Set</h4>
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item bg-light"
+                      *ngFor="let skill of profile.skills"
+                    >
+                      {{ skill }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
