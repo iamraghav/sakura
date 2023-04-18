@@ -23,10 +23,10 @@ export class NavbarComponent implements OnInit {
     this.userService
       .getCurrentUser()
       .pipe(first())
-      .subscribe((user) => {
+      .subscribe((user: any) => {
         console.log(user);
         this.user = user;
-        this.user.av = `https://api.dicebear.com/6.x/adventurer/svg?seed=${user.email}`;
+        this.user.av = `https://api.dicebear.com/6.x/adventurer/svg?seed=${user.id}`;
       });
   }
 

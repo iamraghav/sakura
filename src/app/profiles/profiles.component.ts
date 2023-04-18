@@ -24,18 +24,11 @@ export class ProfilesComponent implements OnInit {
     this.profileService.getAllProfiles().subscribe((data) => {
       // console.log(data);
       this.profiles = data;
-    });
-
-    this.userService
-      .getCurrentUser()
-      .pipe(first())
-      .subscribe((user) => {
-        console.log(user);
-        this.profiles = this.profiles.map((profile: any) => {
-          const res = { ...profile };
-          res.av = `https://api.dicebear.com/6.x/adventurer/svg?seed=${user.email}`;
-          return res;
-        });
+      this.profiles = this.profiles.map((profile: any) => {
+        const res = { ...profile };
+        res.av = `https://api.dicebear.com/6.x/adventurer/svg?seed=${profile.user._id}`;
+        return res;
       });
+    });
   }
 }

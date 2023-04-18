@@ -7,7 +7,7 @@
           <div>
             <div class="row">
               <div class="col-md-6">
-                <a class="btn btn-dark mb-3 float-left" routerLink="/profiles"
+                <a class="btn btn-light mb-3 float-left" routerLink="/profiles"
                   >Back To Profiles</a
                 >
               </div>
@@ -18,13 +18,7 @@
                 <div class="card card-body bg-info text-white mb-3">
                   <div class="row">
                     <div class="col-4 col-md-3 m-auto">
-                      <img
-                        class="rounded-circle"
-                        src="https://avatars.dicebear.com/api/{{
-                          profile.user.avatarType
-                        }}/{{ profile.user.avatar }}.svg"
-                        alt=""
-                      />
+                      <img class="rounded-circle" [src]="profile.av" alt="" />
                     </div>
                   </div>
                   <div class="text-center">
@@ -72,8 +66,8 @@
                   >
                     <h4>{{ exp.company }}</h4>
                     <p>
-                      {{ exp.from | date: "mediumDate" }} -
-                      {{ exp.to | date: "mediumDate" }}
+                      {{ exp.from | date : "mediumDate" }} -
+                      {{ exp.to | date : "mediumDate" }}
                     </p>
                     <p><strong>Position: </strong>{{ exp.title }}</p>
                     <p><strong>Location: </strong>{{ exp.location }}</p>
@@ -90,8 +84,8 @@
                   >
                     <h4>{{ edu.school }}</h4>
                     <p>
-                      {{ edu.from | date: "mediumDate" }} -
-                      {{ edu.to | date: "mediumDate" }}
+                      {{ edu.from | date : "mediumDate" }} -
+                      {{ edu.to | date : "mediumDate" }}
                     </p>
                     <p><strong>Degree / Board: </strong>{{ edu.degree }}</p>
                     <p>

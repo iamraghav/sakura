@@ -23,9 +23,12 @@ export class ProfileComponent implements OnInit {
   }
 
   showProfile() {
-    this.profileService.getProfileById(this.profileId).subscribe((data) => {
-      console.log(data);
-      this.profile = data;
-    });
+    this.profileService
+      .getProfileById(this.profileId)
+      .subscribe((data: any) => {
+        console.log(data);
+        this.profile = data;
+        this.profile.av = `https://api.dicebear.com/6.x/adventurer/svg?seed=${data.user._id}`;
+      });
   }
 }

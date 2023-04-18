@@ -25,7 +25,7 @@ export class ProfileService {
   }
 
   getProfileById(user_id: string) {
-    return this.http.get(`${environment.apiUrl}/profile/${user_id}`);
+    return this.http.get(`${environment.apiUrl}/profile/user/${user_id}`);
   }
 
   editProfile(profile: any) {
