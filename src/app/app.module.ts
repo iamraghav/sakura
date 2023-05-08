@@ -12,12 +12,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { EductaionComponent } from './dashboard/eductaion/eductaion.component';
 import { ExperienceComponent } from './dashboard/experience/experience.component';
+import { PostsComponent } from './posts/posts.component';
+import { MaterialModule } from './shared/material.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -33,12 +38,18 @@ import { ExperienceComponent } from './dashboard/experience/experience.component
     FooterComponent,
     EductaionComponent,
     ExperienceComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MaterialModule,
+    MatBadgeModule,
+    FormsModule,
+    MatMenuModule,
+    MatButtonModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

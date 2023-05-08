@@ -10,22 +10,24 @@ import { LoginComponent } from "./login/login.component";
 import { HomeComponent } from "./home/home.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent },
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
-    path: "dashboard",
+    path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard], //Authguard
   },
-  { path: "profile/:id", component: ProfileComponent },
-  { path: "profiles", component: ProfilesComponent },
-  { path: "education", component: EductaionComponent },
-  { path: "experience", component: ExperienceComponent },
-  { path: "profile", component: EditProfileComponent },
-  { path: "**", redirectTo: "" }, //Wrong Url
+  { path: 'profile/:id', component: ProfileComponent },
+  { path: 'profiles', component: ProfilesComponent },
+  { path: 'education', component: EductaionComponent },
+  { path: 'experience', component: ExperienceComponent },
+  { path: 'profile', component: EditProfileComponent },
+  { path: 'posts', component: PostsComponent },
+  { path: '**', redirectTo: '' }, //Wrong Url
 ];
 
 @NgModule({
