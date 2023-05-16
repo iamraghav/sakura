@@ -26,7 +26,7 @@ export class ProfilesComponent implements OnInit {
       this.profiles = data;
       this.profiles = this.profiles.map((profile: any) => {
         const res = { ...profile };
-        res.av = `https://api.dicebear.com/6.x/adventurer/svg?seed=${profile.user._id}`;
+        res.av = `https://api.dicebear.com/6.x/initials/svg?seed=${profile.user.name}`;
         return res;
       });
     });

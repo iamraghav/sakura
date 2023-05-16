@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
       .subscribe((data: any) => {
         console.log(data);
         this.profile = data;
-        this.profile.av = `https://api.dicebear.com/6.x/adventurer/svg?seed=${data.user._id}`;
+        this.profile.av = `https://api.dicebear.com/6.x/initials/svg?seed=${data.user.name}`;
       });
   }
 }

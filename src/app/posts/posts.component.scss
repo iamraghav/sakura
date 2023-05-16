@@ -291,35 +291,28 @@
           display: flex;
           align-items: center;
 
-          form {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
+          button {
+            height: 44px;
+            width: 44px;
+            border-radius: 50%;
+            text-align: center;
+            margin-top: 2.3rem;
+            position: relative;
+            border: none;
+            transition: all 0.5s ease-in-out;
 
-            button {
-              height: 44px;
-              width: 44px;
-              border-radius: 50%;
-              text-align: center;
-              margin-top: 2.3rem;
-              position: relative;
-              border: none;
-              transition: all 0.5s ease-in-out;
+            i {
+              position: absolute;
+              right: 15px;
+              top: 12px;
+            }
 
-              i {
-                position: absolute;
-                right: 15px;
-                top: 12px;
-              }
-
-              &:hover{
+            &:hover {
               background-color: pink;
-              }
             }
           }
 
-          form > input.on-your-mind {
+          input.on-your-mind {
             background-color: #f0f2f5;
             display: inline-block;
             outline: none;
@@ -356,6 +349,7 @@
           .posts__header__right {
             // display: flex;
             flex-direction: column-reverse;
+            margin-left: 2rem;
 
             h3 {
               font-weight: 600;
@@ -365,6 +359,7 @@
             }
           }
         }
+        margin-bottom: 1rem;
 
         .posts__body {
           margin-top: 10px;
@@ -392,12 +387,28 @@
 }
 
 .mat-mdc-card-avatar {
-  height: 175px;
-  width: 175px;
+  height: 90px;
+  width: 90px;
 }
-
 
 .posted {
   color: #65676b;
-  font-size:px;;
+  font-size: px;
+}
+
+.collapsed {
+  height: 176.4px;
+  overflow: hidden;
+}
+
+.expanded {
+  // overflow: hidden;
+  height: fit-content;
+}
+
+.more {
+  color: blue;
+  &:hover {
+    cursor: pointer;
+  }
 }

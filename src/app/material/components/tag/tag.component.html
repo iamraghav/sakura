@@ -1,0 +1,16 @@
+<div>
+  <mat-form-field class="chip-list">
+    <mat-chip-grid #chipGrid aria-label="Tag Selection">
+      <mat-chip-row *ngFor="let tag of tags" (removed)="remove(tag)">
+        {{ tag.name }}
+        <span matChipRemove *ngIf="removable">x</span>
+      </mat-chip-row>
+      <input
+        [matChipInputFor]="chipGrid"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+      />
+    </mat-chip-grid>
+  </mat-form-field>
+</div>

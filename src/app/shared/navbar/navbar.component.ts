@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
       .subscribe((user: any) => {
         console.log(user);
         this.user = user;
-        this.user.av = `https://api.dicebear.com/6.x/adventurer/svg?seed=${user.id}`;
+        this.user.av = `https://api.dicebear.com/6.x/initials/svg?seed=${user.name}`;
       });
   }
 

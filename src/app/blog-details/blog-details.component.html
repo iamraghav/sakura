@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="blog-details-container" style="margin-top: 5rem">
+  <div class="blog-details-image">
+    <img [src]="blog_props?.featureImage?.url" alt="cover_image" />
+  </div>
+  <div class="blog-details-title-date">
+    <h3 class="title" id="title">{{ blog_props.name }}</h3>
+    <h4 id="date">{{ blog_props.date | date : "medium" }}</h4>
+  </div>
+  <div class="blog-details-content">
+    <p [innerHTML]="blog_props.text | sanitizeHTML"></p>
+  </div>
+</div>

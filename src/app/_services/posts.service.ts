@@ -41,6 +41,13 @@ export class PostsService {
       this.httpOptions
     );
   }
+
+  deletePost() {
+    return this.http.delete(
+      `${environment.apiUrl}/posts/:id`,
+      this.httpOptions
+    );
+  }
 }
 
 export interface IPost {

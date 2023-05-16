@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="all-blogs-container">
+  <div class="blog-container" *ngFor="let blog of blogs">
+    <div class="blog-container-image">
+      <img [src]="blog?.featureImage?.url" alt="Cover-image" />
+    </div>
+    <div class="blog-container-details">
+      <h3 class="title" (click)="navigateToDetails(blog)">{{ blog.name }}</h3>
+    </div>
+    <div class="blog-container-post">
+      <span>
+        <p (click)="navigateToUserProfile(blog.userid)">
+          {{ blog.username }} wrote
+        </p>
+        <p>on {{ blog.date | date : "medium" }}</p>
+      </span>
+    </div>
+  </div>
+</div>
+
+<button
+  mat-fab
+  color="accent"
+  aria-label="Example icon button with a bookmark icon"
+  class="add-new-btn"
+  title="Add new"
+  [routerLink]="['/posts/new']"
+>
+  <mat-icon>create</mat-icon>
+</button>
+
+<mat-progress-spinner
+  class="progress-spinner"
+  mode="indeterminate"
+  *ngIf="show_spinner"
+></mat-progress-spinner>

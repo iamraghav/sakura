@@ -1,42 +1,75 @@
 <app-navbar></app-navbar>
 <div class="home-container">
-    <div class="home__body">
-<div class="home__body__contentMiddle">
-        <div class="home__body__contentMiddle__center">
-          <mat-card class="post-message">
-            <mat-card-header class="post-message-header"
-                             style="padding-bottom: 20px; border-bottom: 1px solid lightgray;">
-              <img
-                alt=""
-                mat-card-avatar
-                [src]="user?.av">
-              <form #form="ngForm" (ngSubmit)="postMessage(form)">
-                <input class="on-your-mind" name="message" ngModel placeholder="What's on your mind?" type="text">
-                <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-              </form>
-            </mat-card-header>
-          </mat-card>
-  
-          <!--Loop Through All Posts From Database and Display-->
-          <mat-card *ngFor="let post of posts" class="posts">
+  <div class="home__body">
+    <div class="home__body__contentMiddle">
+      <div class="home__body__contentMiddle__center">
+        <mat-card class="post-message">
+          <mat-card-header
+            class="post-message-header"
+            style="border-bottom: 1px solid lightgray"
+          >
+            <img alt="" mat-card-avatar [src]="user?.av" />
+            <input
+              class="on-your-mind"
+              name="message"
+              [(ngModel)]="message"
+              placeholder="What's on your mind?"
+              type="text"
+            />
+            <button (click)="postMessage()" type="submit">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+          </mat-card-header>
+        </mat-card>
+
+        <!--Loop Through All Posts From Database and Display-->
+        <div>
+          <mat-card
+            *ngFor="let post of posts"
+            class="posts collapsed"
+            [class.expanded]="expanded"
+          >
             <mat-card-header class="posts__header">
-              <img alt="{{ post?.title }}" mat-card-avatar [src]="post?.avatar">
-                <div class="posts__header__right">
-                <h2>{{ post?.username }}</h2> 
-                <span class="posted">Posted At: {{ post?.date | date:'shortTime' }}</span>
-                <p>{{ post?.name }}</p> 
+              <img
+                alt="{{ post?.title }}"
+                mat-card-avatar
+                [src]="post?.avatar"
+              />
+              <div class="posts__header__right">
+                <h2>{{ post?.username }}</h2>
+                <span class="posted"
+                  >Posted At: {{ post?.date | date : "shortTime" }}</span
+                >
+                <p *ngIf="post?.name.length <= 80 || expanded">
+                  {{ post?.name }}
+                  <span *ngIf="expanded" (click)="expanded = !expanded"
+                    >...less</span
+                  >
+                </p>
+                <p *ngIf="post?.name.length >= 80">
+                  {{ post?.name.slice(0, 80) }}
+                  <span (click)="expanded = !expanded" class="more"
+                    >...more</span
+                  >
+                </p>
               </div>
             </mat-card-header>
             <mat-card-content class="posts__body">
-             <div (click)="like(post._id)">
-              <i click="like(post._id)" class="fa fa-thumbs-o-up" style="cursor: pointer; margin-left: 5px;" aria-hidden="true"></i>
-              <span style="
-              font-size: smaller;
-              margin-left: 5px;">{{post?.likes?.length ? post?.likes?.length: 0}}</span>
-            </div>
+              <div (click)="like(post._id)">
+                <i
+                  click="like(post._id)"
+                  class="fa fa-thumbs-o-up"
+                  style="cursor: pointer; margin-left: 5px"
+                  aria-hidden="true"
+                ></i>
+                <span style="font-size: smaller; margin-left: 5px">{{
+                  post?.likes?.length ? post?.likes?.length : 0
+                }}</span>
+              </div>
             </mat-card-content>
           </mat-card>
         </div>
-      </div>  
+      </div>
     </div>
   </div>
+</div>

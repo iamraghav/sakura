@@ -13,7 +13,9 @@ export class PostsComponent implements OnDestroy {
   subs: Subscription[] = [];
   posts: any[] = [];
   user: any;
-  canLikePost: boolean = false;
+  canLikePost: boolean = true;
+  message = '';
+  expanded = false;
 
   constructor(
     private authService: UserService,
@@ -27,7 +29,7 @@ export class PostsComponent implements OnDestroy {
     this.subs.push(
       this.authService.getCurrentUser().subscribe((user) => {
         this.user = user;
-        this.user.av = `https://api.dicebear.com/6.x/adventurer/svg?seed=${user.id}`;
+        this.user.av = `https://api.dicebear.com/6.x/initials/svg?seed=${user.name}`;
       })
     );
   }
@@ -35,17 +37,17 @@ export class PostsComponent implements OnDestroy {
   getPost() {
     this.subs.push(
       this.postService.getAllPosts().subscribe(async (posts: any) => {
+        console.log('posts:', posts);
         this.posts = posts;
       })
     );
   }
 
-  postMessage(form: NgForm): void {
-    const val: { message: string } = form.value;
-    console.log(this.user);
+  postMessage(): void {
+    const val = this.message;
     const postData = {
-      text: val.message,
-      name: val.message,
+      text: val,
+      name: val,
       avatar: this.user.av,
       userid: this.user.id,
       username: this.user.name,
@@ -53,7 +55,7 @@ export class PostsComponent implements OnDestroy {
     this.postService.postMessage(postData).subscribe((response) => {
       this.getPost();
     });
-    form.resetForm();
+    this.message = '';
   }
 
   ngOnDestroy(): void {
@@ -61,9 +63,9 @@ export class PostsComponent implements OnDestroy {
   }
 
   like(_id: string) {
-    const currPost = this.posts.find((post) => post.user === this.user.id);
-    console.log('currPost:', currPost);
-    if (currPost)
+    const currPost = this.posts.find((post) => post._id === _id);
+    const userLiked = currPost.likes.some((like) => like.user === this.user.id);
+    if (!userLiked)
       this.postService.postLike(_id).subscribe((response) => {
         this.getPost();
       });
