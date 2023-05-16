@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  margin-top: 6rem;
 }
 
 .blog-container {
@@ -17,14 +18,13 @@
   margin-bottom: 30px;
 }
 
-.blog-container-image {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-}
+
+
 .blog-container-image img {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+
 }
 
 .blog-container-details {

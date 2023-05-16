@@ -6,6 +6,7 @@
   <div class="blog-details-title-date">
     <h3 class="title" id="title">{{ blog_props.name }}</h3>
     <h4 id="date">{{ blog_props.date | date : "medium" }}</h4>
+    <h4 class="like-btn" (click)="like(blog_props._id)">❤️ {{blog_props.likes?.length}}</h4>
   </div>
   <div class="blog-details-content">
     <p [innerHTML]="blog_props.text | sanitizeHTML"></p>
